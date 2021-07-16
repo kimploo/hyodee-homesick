@@ -4,7 +4,7 @@ import { HappyMoment } from './Pages/HappyMoment';
 import { Main } from './Pages/Main';
 import { Notice } from './Pages/Notice';
 import { Location } from './Pages/Location';
-import Account from './Pages/Account';
+import { Account } from './Pages/Account';
 
 export const App = () => {
   return (
