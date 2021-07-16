@@ -4,8 +4,8 @@ export const layoutSlice = createSlice({
   name: 'layout',
   initialState: {
     font: {
-      serif: 'NanumMyeongjo,Nanum Myeongjo',
-      sans: 'Noto Sans KR',
+      serif: `"NanumMyeongjo", "Nanum Myeongjo", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif`,
+      sans: `"Noto Sans KR", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif`,
     },
     viewBox: {
       width: 800,
