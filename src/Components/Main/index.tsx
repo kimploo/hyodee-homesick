@@ -673,9 +673,81 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           <path d="M717.89 1399.93H82.11V748.57C82.11 573 224.44 422.16 400 422.16c175.56 0 317.89 150.84 317.89 326.41z" fill="none" />
         </clipPath>
         <style>
-          {
-            '.Main__cls-1,.Main__cls-77,.Main__cls-83,.Main__cls-87{fill:none}.Main__cls-1,.Main__cls-77{stroke:#1e603f}.Main__cls-1,.Main__cls-77,.Main__cls-80,.Main__cls-81,.Main__cls-82,.Main__cls-83,.Main__cls-86,.Main__cls-87{stroke-miterlimit:10}.Main__cls-1{stroke-width:.41px}.Main__cls-80,.Main__cls-81,.Main__cls-82,.Main__cls-86{stroke:#326e4c}.Main__cls-76{font-family:NanumMyeongjoBold,Nanum Myeongjo}.Main__cls-76,.Main__cls-85{fill:#1e603f}.Main__cls-76{font-size:13.3px}.Main__cls-77{stroke-width:1.74px}.Main__cls-80{stroke-width:1px}.Main__cls-80,.Main__cls-82{fill:#fff}.Main__cls-81,.Main__cls-86{fill:#f7c9dd}.Main__cls-81{stroke-width:.93px}.Main__cls-82,.Main__cls-86{stroke-width:.92px}.Main__cls-83{stroke:#a5d188}.Main__cls-83,.Main__cls-87{stroke-width:1.25px}.Main__cls-84{fill:#f1ec63}.Main__cls-87{stroke:#fff}'
-          }
+          {`
+            .Main__cls-1,
+            .Main__cls-77,
+            .Main__cls-83,
+            .Main__cls-87 {
+              fill: none;
+            }
+            .Main__cls-1,
+            .Main__cls-77 {
+              stroke: #1e603f;
+            }
+            .Main__cls-1,
+            .Main__cls-77,
+            .Main__cls-80,
+            .Main__cls-81,
+            .Main__cls-82,
+            .Main__cls-83,
+            .Main__cls-86,
+            .Main__cls-87 {
+              stroke-miterlimit: 10;
+            }
+            .Main__cls-1 {
+              stroke-width: 0.41px;
+            }
+            .Main__cls-80,
+            .Main__cls-81,
+            .Main__cls-82,
+            .Main__cls-86 {
+              stroke: #326e4c;
+            }
+            .Main__cls-76 {
+              font-family: ${serif};
+            }
+            .Main__cls-76,
+            .Main__cls-85 {
+              fill: #1e603f;
+            }
+            .Main__cls-76 {
+              font-size: 13.3px;
+            }
+            .Main__cls-77 {
+              stroke-width: 1.74px;
+            }
+            .Main__cls-80 {
+              stroke-width: 1px;
+            }
+            .Main__cls-80,
+            .Main__cls-82 {
+              fill: #fff;
+            }
+            .Main__cls-81,
+            .Main__cls-86 {
+              fill: #f7c9dd;
+            }
+            .Main__cls-81 {
+              stroke-width: 0.93px;
+            }
+            .Main__cls-82,
+            .Main__cls-86 {
+              stroke-width: 0.92px;
+            }
+            .Main__cls-83 {
+              stroke: #a5d188;
+            }
+            .Main__cls-83,
+            .Main__cls-87 {
+              stroke-width: 1.25px;
+            }
+            .Main__cls-84 {
+              fill: #f1ec63;
+            }
+            .Main__cls-87 {
+              stroke: #fff;
+            }
+          `}
         </style>
       </defs>
       <g id="Main__\uB808\uC774\uC5B4_2" data-name="\uB808\uC774\uC5B4 2">
@@ -689,7 +761,8 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           </g>
           <text
             transform="translate(220.62 1492.79)"
-            fontFamily="NanumMyeongjo,Nanum Myeongjo"
+            fontFamily={serif}
+            fontWeight="regular"
             fill="#443d39"
             fontSize={41}
             stroke="#443d39"
@@ -700,11 +773,11 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             {/* eslint-disable-next-line prettier/prettier */}
             <tspan>김효정 &#160;&#160;&#160;김홍식</tspan>
           </text>
-          <text transform="translate(183.85 1565.26)" fontSize={29.04} fill="#326e4c" fontFamily="NanumMyeongjo,Nanum Myeongjo">
+          <text transform="translate(183.85 1565.26)" fontSize={29.04} fill="#326e4c" fontFamily={serif}>
             <tspan strokeWidth={0.2} stroke="#326e4c" strokeMiterlimit={10}>
               {'2021\uB144 10\uC6D4 23\uC77C \uD1A0\uC694\uC77C \uC624\uD6C4 5\uC2DC'}
             </tspan>
-            <tspan fontFamily="NanumMyeongjo,Nanum Myeongjo" fontWeight="bold">
+            <tspan fontFamily={serif} fontWeight="bold">
               <tspan x={87.61} y={44.23}>
                 프란치스코 교육회관
               </tspan>
@@ -719,7 +792,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             fill="#1e603f"
             fontSize={43.06}
             letterSpacing=".1em"
-            fontFamily="NanumMyeongjo,Nanum Myeongjo"
+            fontFamily={serif}
             fontWeight="bold"
           >
             {'10/23'}
