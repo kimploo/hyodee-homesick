@@ -12,6 +12,17 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
       viewBox: { width },
     },
   } = useSelector(changeWidth).payload;
+
+  const getDaysLeft = () => {
+    let result;
+    try {
+      result = Math.floor(new Date(new Date('2021-10-23 17:00:00').getTime() - new Date().getTime()).getTime() / 1000 / 60 / 60 / 24);
+    } catch (e) {
+      result = '00';
+    }
+    return result;
+  };
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1920.86" {...props}>
       <defs>
@@ -359,7 +370,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           d="M121.39 1396.14h231.18M447.57 1396.14h231.18M74.9 629.21h651.97M74.9 692.81h651.97"
         />
         <text transform="matrix(.99 0 0 1 115.86 670.09)" fontSize={25} fill="#443d39" fontFamily={sans}>
-          10월 23일 토요일 오후 5시, 결혼식이 00일 남았습니다.
+          10월 23일 토요일 오후 5시, 결혼식이 {getDaysLeft()}일 남았습니다.
         </text>
         <text className="CalendarAndContact-cls-23" transform="matrix(.99 0 0 1 176.73 1380.36)">
           {'\uC2E0\uB791\uCE21 \uD63C\uC8FC'}
