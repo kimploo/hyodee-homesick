@@ -1,14 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-
-const StyledButton = styled.button`
-  display: block;
-`;
+import { GlobalStyle } from './GlobalStyle';
+import { CalendarAndContact } from './Pages/CalendarAndContact';
+import { HappyMoment } from './Pages/HappyMoment';
+import { Main } from './Pages/Main';
+import { Notice } from './Pages/Notice';
+import { Location } from './Pages/Location';
+import Account from './Pages/Account';
 
 export const App = () => {
   return (
     <div className="App">
-      <header className="App-header">test</header>
+      <GlobalStyle />
+      <Main />
+      <Notice />
+      <CalendarAndContact />
+      <HappyMoment />
+      <Location />
+      <Account />
     </div>
   );
 };
