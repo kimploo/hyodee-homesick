@@ -854,7 +854,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           <text className="Main__cls-76" transform="rotate(39.6 -14.99 797.81)">
             {'E'}
           </text>
-          <text className="Main__cls-76" transform="rotate(44.19 9.677 739.644)">
+          <text className="Main__cls-76" transform="rotate(44.19 9.677 735)">
             {'D'}
           </text>
           <path className="Main__cls-77" d="M247.71 265.79v8.79M209.59 277.58h76.94" />

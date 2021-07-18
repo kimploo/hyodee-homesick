@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { changeWidth, changeFont } from '../../reducer/layout';
-import Carousel from 'react-bootstrap/Carousel';
 
 export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   const {
