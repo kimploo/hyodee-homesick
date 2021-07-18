@@ -30,7 +30,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
     const initMap = () => {
       // const bound = new naver.maps.LatLngBounds(new naver.maps.LatLng(37.56, 126.965), new naver.maps.LatLng(37.57, 126.975));
       // width="800.49" height="442.96"
-      map = new naver.maps.Map('map', {
+      map = new naver.maps.CanvasTile({
         size: new naver.maps.Size(mapWidth, mapHeight),
         center: new naver.maps.LatLng(lat, lng),
         logoControl: true,
@@ -41,6 +41,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
         keyboardShortcuts: false,
         zoom: 17,
       });
+      map.appendTo(document.getElementById('map'));
     };
     initMap();
     const marker = new naver.maps.Marker({
@@ -48,7 +49,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
       position: new naver.maps.LatLng(lat, lng),
       map: map,
     });
-    map.setCenter(new naver.maps.LatLng(37.567, 126.97));
+    // map.setCenter(new naver.maps.LatLng(37.567, 126.97));
     // const infowindow = new naver.maps.InfoWindow({
     //   content: [
     //     '<div class="iw_inner" style="text-align: center;">',
@@ -882,9 +883,15 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             fill="none"
             strokeMiterlimit={10}
           />
-          <foreignObject y="487.48" width="800.49" height="442.96">
-            <div xmlns="w3.org/1999/xhtml" id="map"></div>
-          </foreignObject>
+          <image
+            y="487.48"
+            width="800.49"
+            height="442.96"
+            href="https://hyodee-homesick.s3.ap-northeast-2.amazonaws.com/wedding-photo/map.png"
+          ></image>
+          {/* <foreignObject y="487.48" width="800.49" height="442.96"> */}
+          {/* <div xmlns="w3.org/1999/xhtml" id="map" width="800.49" height="442.96"></div> */}
+          {/* </foreignObject> */}
           <text className="Location__cls-135" transform="matrix(.99 0 0 1 269.73 1119.5)">
             {'\uCE74\uCE74\uC624\uB0B4\uBE44'}
           </text>
