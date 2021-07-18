@@ -142,7 +142,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           </tspan>
         </text>
         <path strokeWidth={0.61} stroke="#1e603f" fill="none" strokeMiterlimit={10} d="M420.29 1019.17l-40.58 37.68" />
-        <text transform="translate(182.86 804.78)" fontFamily={serif} fontWeight={800} fontSize={25} fill="#443d39" letterSpacing="-.01em">
+        <text transform="translate(182.86 804.78)" fontFamily={serif} fontWeight={500} fontSize={25} fill="#443d39" letterSpacing="-.01em">
           코로나19로 어려운 시국에 청첩장 전달이
           <tspan x={6.26} y={46.01}>
             마음의 짐이 되지 않을까 걱정이 됩니다.
@@ -154,7 +154,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             마음 감사히 받겠습니다.
           </tspan>
         </text>
-        <text transform="translate(288.56 271.58)" fontSize={40} fill="#ad7e5e" letterSpacing=".2em" fontFamily={serif} fontWeight={800}>
+        <text transform="translate(288.56 271.58)" fontSize={40} fill="#ad7e5e" letterSpacing=".2em" fontFamily={serif} fontWeight={500}>
           결혼합니다
         </text>
         <path className="Notice__cls-14" d="M118 411.66h564M118 472.7h564M118 533.74h564M118 594.78h564M118 655.82h564M118 716.86h564" />
@@ -164,7 +164,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           strokeWidth={0.2}
           letterSpacing="-.01em"
           fontFamily={serif}
-          fontWeight={800}
+          fontWeight={500}
           fill="#326e4c"
           strokeMiterlimit={10}
           stroke="#326e4c"
