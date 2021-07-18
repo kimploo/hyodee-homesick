@@ -16,7 +16,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   const getDaysLeft = () => {
     let result;
     try {
-      result = Math.floor(new Date(new Date('2021-10-23 17:00:00').getTime() - new Date().getTime()).getTime() / 1000 / 60 / 60 / 24);
+      result = Math.floor(new Date(1634976000000 - Number(new Date())).getTime() / 1000 / 60 / 60 / 24);
     } catch (e) {
       result = '00';
     }
