@@ -873,8 +873,12 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           />
           <path className="Main__cls-77" d="M514.06 299.89c-3.66-3.73-5.79-6-6.82-7.1a5.41 5.41 0 01-1.52-3.6 5.74 5.74 0 015.62-5.84" />
           <g clipPath="url(#Main__clip-path-67)">
-            <image width={2000} height={3000} xlinkHref="./cropedMainPhoto.png" transform="matrix(.38 0 0 .38 27.23 303.66)" />
-            {/* 사진 자리 */}
+            <image
+              width={2000}
+              height={3000}
+              xlinkHref="https://hyodee-homesick.s3.ap-northeast-2.amazonaws.com/wedding-photo/013.jpeg"
+              transform="matrix(.38 0 0 .38 27.23 303.66)"
+            />
           </g>
           <path
             d="M718.28 1399.93H81.72v-651.2C81.72 573 224.22 421.94 400 421.94h0c175.78 0 318.28 151 318.28 326.79z"

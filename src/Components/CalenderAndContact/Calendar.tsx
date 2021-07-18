@@ -1,15 +1,6 @@
 import { useSelector } from 'react-redux';
 import { changeFont } from '../../reducer/layout';
-
-const getDaysLeft = () => {
-  let result;
-  try {
-    result = Math.floor(new Date(1634914800000 - Number(new Date())).getTime() / 1000 / 60 / 60 / 24);
-  } catch (e) {
-    result = '00';
-  }
-  return result;
-};
+import { getDaysLeft } from '../../util/getDaysLeft';
 
 export const Calendar = () => {
   const {
@@ -159,7 +150,7 @@ export const Calendar = () => {
         {'30'}
       </text>
       <text transform="matrix(.99 0 0 1 115.86 670.09)" fontSize={25} fill="#443d39" fontFamily={sans}>
-        10월 23일 토요일 오후 5시, 결혼식이 {getDaysLeft()}일 남았습니다.
+        10월 23일 토요일 오후 5시, 결혼식이 {getDaysLeft('2021-10-23')}일 남았습니다.
       </text>
     </>
   );
