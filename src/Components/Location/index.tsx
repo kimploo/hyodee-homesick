@@ -1,3 +1,8 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
+import { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { changeWidth, changeFont } from '../../reducer/layout';
 import { Icons } from './Icons';
@@ -13,8 +18,59 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
       viewBox: { width },
     },
   } = useSelector(changeWidth).payload;
+
+  const naverMap = useRef(null);
+  var map;
+  useEffect(() => {
+    // 126.9635035,37.5720123
+    const lat = 37.5675763;
+    const lng = 126.970047;
+    const mapWidth = 800.49;
+    const mapHeight = 442.96;
+    const initMap = () => {
+      // const bound = new naver.maps.LatLngBounds(new naver.maps.LatLng(37.56, 126.965), new naver.maps.LatLng(37.57, 126.975));
+      // width="800.49" height="442.96"
+      map = new naver.maps.Map('map', {
+        size: new naver.maps.Size(mapWidth, mapHeight),
+        center: new naver.maps.LatLng(lat, lng),
+        logoControl: true,
+        zoomControl: false,
+        draggable: false,
+        scaleControl: false,
+        scrollWheel: false,
+        keyboardShortcuts: false,
+        zoom: 17,
+      });
+    };
+    initMap();
+    const marker = new naver.maps.Marker({
+      title: '프란치스코 교육회관',
+      position: new naver.maps.LatLng(lat, lng),
+      map: map,
+    });
+    map.setCenter(new naver.maps.LatLng(37.567, 126.97));
+    // const infowindow = new naver.maps.InfoWindow({
+    //   content: [
+    //     '<div class="iw_inner" style="text-align: center;">',
+    //     '   <h3>천주교 프란치스코 교육회관</h3>',
+    //     '   <p>서울특별시 중구 정동 정동길 9번지<br />',
+    //     '       <a href="http://www.fec.or.kr/" target="_blank">www.fec.or.kr</a>',
+    //     '   </p>',
+    //     '</div>',
+    //   ].join(''),
+    //   backgroundColor: '#fffcf6',
+    //   borderWidth: '0px',
+    //   disableAnchor: true,
+    //   disableAutoPan: true,
+    //   pixelOffset: new naver.maps.Point(-119, -140),
+    // });
+    naver.maps.Event.addListener(marker, 'click', function (e) {
+      map.setCenter(new naver.maps.LatLng(37.5675, 126.971));
+    });
+  }, []);
+
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 1605.22" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox={`0 0 ${width} 1605.22`} {...props}>
       <defs>
         <clipPath id="Location__clip-path">
           <circle className="Location__cls-1" cx={319.38} cy={1028.31} r={46.77} />
@@ -826,6 +882,9 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             fill="none"
             strokeMiterlimit={10}
           />
+          <foreignObject y="487.48" width="800.49" height="442.96">
+            <div xmlns="w3.org/1999/xhtml" id="map"></div>
+          </foreignObject>
           <text className="Location__cls-135" transform="matrix(.99 0 0 1 269.73 1119.5)">
             {'\uCE74\uCE74\uC624\uB0B4\uBE44'}
           </text>
