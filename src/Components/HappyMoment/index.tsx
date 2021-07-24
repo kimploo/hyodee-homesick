@@ -28,10 +28,11 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
     if (!isPlus && CarouselIndex <= 0) return;
     if (isPlus === true) setCarouselIndex(CarouselIndex + 1);
     if (isPlus === false) setCarouselIndex(CarouselIndex - 1);
+    return;
   };
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox={`0 0 ${800} 1096.91`} {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox={`0 0 ${width} 1096.91`} {...props}>
       <defs>
         <linearGradient
           id="HappyMoment-cls-999-linearGradient"
@@ -119,27 +120,11 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
         </text>
         <g name="left-button">
           <polyline className="HappyMoment-cls-7" points="762.75,539.62 776.16,553.04 762.75,566.45" />
-          <rect
-            className="hiddenButton"
-            opacity={0}
-            x={762.75}
-            y={539.62}
-            width={20}
-            height={30}
-            onClick={() => handleCarousel(true)}
-          ></rect>
+          <rect className="hiddenButton" opacity={0} x={700} y={480} width={100} height={150} onClick={() => handleCarousel(true)}></rect>
         </g>
         <g name="right-button">
           <polyline className="HappyMoment-cls-7" points="37.25,566.45 23.84,553.04 37.25,539.62" />
-          <rect
-            className="hiddenButton"
-            opacity={0}
-            x={23.84}
-            y={539.62}
-            width={20}
-            height={30}
-            onClick={() => handleCarousel(false)}
-          ></rect>
+          <rect className="hiddenButton" opacity={0} x={0} y={480} width={100} height={150} onClick={() => handleCarousel(false)}></rect>
         </g>
       </g>
     </svg>
