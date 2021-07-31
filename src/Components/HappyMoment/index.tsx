@@ -1,6 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { changeWidth, changeFont } from '../../reducer/layout';
+import { changeLocation } from '../../reducer/weddingInfo';
+
+interface Photo {
+  message: string;
+  index: number;
+}
 
 export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
   const {
@@ -13,6 +19,9 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
       viewBox: { width },
     },
   } = useSelector(changeWidth).payload;
+  const {
+    weddingInfo: { photos },
+  } = useSelector(changeLocation).payload;
 
   const carouselLocation = {
     x: 69.44,
@@ -20,15 +29,55 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
     width: 661.12,
   };
 
-  const [CarouselIndex, setCarouselIndex] = useState(0);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  let xDown = 0;
+  let yDown = 0;
 
   const handleCarousel = (isPlus: boolean) => {
-    console.log('clicked');
-    if (isPlus && CarouselIndex >= 1) return;
-    if (!isPlus && CarouselIndex <= 0) return;
-    if (isPlus === true) setCarouselIndex(CarouselIndex + 1);
-    if (isPlus === false) setCarouselIndex(CarouselIndex - 1);
+    if (isPlus && carouselIndex >= photos.length - 1) return;
+    if (!isPlus && carouselIndex <= 0) return;
+    if (isPlus === true) setCarouselIndex(carouselIndex + 1);
+    if (isPlus === false) setCarouselIndex(carouselIndex - 1);
     return;
+  };
+
+  const getTouches = (event: React.TouchEvent) => {
+    return event.touches;
+  };
+
+  const handleTouchStart = (event: React.TouchEvent) => {
+    const firstTouch = getTouches(event)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+  };
+
+  const handleTouchMove = (event: React.TouchEvent) => {
+    if (!xDown || !yDown) {
+      return;
+    }
+
+    const xUp = event.touches[0].clientX;
+    const yUp = event.touches[0].clientY;
+
+    const xDiff = xDown - xUp;
+    const yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
+        handleCarousel(true);
+      } else {
+        handleCarousel(false);
+      }
+    } else {
+      if (yDiff > 0) {
+        /* down swipe */
+      } else {
+        /* up swipe */
+      }
+    }
+    /* reset values */
+    xDown = 0;
+    yDown = 0;
   };
 
   return (
@@ -51,26 +100,19 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           <path fill="#FFFFFF" d="M69.44 215.8h661.12v697.16H69.44z" />
         </clipPath> */}
         <pattern id="img1" patternUnits="userSpaceOnUse" width="100%" height="100%">
-          <image
-            x={carouselLocation.x}
-            y={carouselLocation.y}
-            width={700}
-            style={{
-              transition: '1s',
-              transform: `translate(${661.12 * 0 - 661.12 * CarouselIndex}px, 0)`,
-            }}
-            xlinkHref="https://hyodee-homesick.s3.ap-northeast-2.amazonaws.com/wedding-photo/001.jpeg"
-          />
-          <image
-            x={carouselLocation.x}
-            y={carouselLocation.y}
-            width={700}
-            style={{
-              transition: '1s',
-              transform: `translate(${661.12 * 1 - 661.12 * CarouselIndex}px, 0)`,
-            }}
-            xlinkHref="https://hyodee-homesick.s3.ap-northeast-2.amazonaws.com/wedding-photo/002.jpeg"
-          />
+          {photos.map((photo: Photo) => (
+            <image
+              key={photo.index}
+              x={carouselLocation.x}
+              y={carouselLocation.y}
+              width={661}
+              style={{
+                transition: '1s',
+                transform: `translate(${661.12 * (photo.index - 1) - 661.12 * carouselIndex}px, 0)`,
+              }}
+              xlinkHref={`https://hyodee-homesick.s3.ap-northeast-2.amazonaws.com/wedding-photo/cropped+0${photo.index}.jpeg`}
+            ></image>
+          ))}
         </pattern>
         <style>
           {`
@@ -94,29 +136,34 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           `}
         </style>
       </defs>
-      <g id="\uB808\uC774\uC5B4_2" data-name="\uB808\uC774\uC5B4 2">
+      <g id="\uB808\uC774\uC5B4_2" data-name="\uB808\uC774\uC5B4 2" onTouchMove={handleTouchMove} onTouchStart={handleTouchStart}>
         <path fill="#1e603f" d="M0 0h800v1096.91H0z" />
         <text transform="translate(268.28 137.37)" fontSize={37} fill="#ffce99" fontFamily={serif} fontWeight={800} letterSpacing=".1em">
           행복한 순간들
         </text>
-        <circle cx={291.14} cy={983.39} r={5.79} fill="#fffae3" />
-        <circle className="HappyMoment-cls-5" cx={334.68} cy={983.39} r={5.79} />
-        <circle className="HappyMoment-cls-5" cx={378.23} cy={983.39} r={5.79} />
-        <circle className="HappyMoment-cls-5" cx={421.77} cy={983.39} r={5.79} />
-        <circle className="HappyMoment-cls-5" cx={465.32} cy={983.39} r={5.79} />
-        <circle className="HappyMoment-cls-5" cx={508.86} cy={983.39} r={5.79} />
+        <circle cx={400 - 43.54 * 3 + carouselIndex * 43.54} cy={983.39} r={5.79} fill="#fffae3" />
+        <circle className="HappyMoment-cls-5" cx={400 - 43.54 * 3} cy={983.39} r={5.79} />
+        <circle className="HappyMoment-cls-5" cx={400 - 43.54 * 2} cy={983.39} r={5.79} />
+        <circle className="HappyMoment-cls-5" cx={400 - 43.54 * 1} cy={983.39} r={5.79} />
+        <circle className="HappyMoment-cls-5" cx={400} cy={983.39} r={5.79} />
+        <circle className="HappyMoment-cls-5" cx={400 + 43.54 * 1} cy={983.39} r={5.79} />
+        <circle className="HappyMoment-cls-5" cx={400 + 43.54 * 2} cy={983.39} r={5.79} />
+        <circle className="HappyMoment-cls-5" cx={400 + 43.54 * 3} cy={983.39} r={5.79} />
         <path d="M69.44 215.8h661.12v697.16H69.44z" fill={`url(#img${1})`} />;
         {/* <path className="HappyMoment-cls-7" d="M37.25 566.45l-13.41-13.41 13.41-13.42M762.75 539.62l13.41 13.42-13.41 13.41" /> */}
-        <path opacity={0.5} fill="url(#HappyMoment-cls-999-linearGradient)" d="M69.44 853.36h661.12v59.6H69.44z" />
+        <rect x={69.44} y={853.36} width={661.12} height={59.6} fill="url(#HappyMoment-cls-999-linearGradient)" opacity={0.5}></rect>
         <text
           className="HappyMoment-cls-999"
-          transform="matrix(.99 0 0 1 328.59 892.08)"
+          x={69.44 + 661.12 / 2}
+          y={853.36 + 59.6 / 2}
           fontSize={25}
           fill="#fffcf6"
           fontFamily={sans}
           fontWeight={400}
+          textAnchor="middle"
+          dominantBaseline="middle"
         >
-          {'\uC544\uB984\uB2E4\uC6B4 \uC2E0\uB791'}
+          {photos[carouselIndex].message}
         </text>
         <g name="left-button">
           <polyline className="HappyMoment-cls-7" points="762.75,539.62 776.16,553.04 762.75,566.45" />

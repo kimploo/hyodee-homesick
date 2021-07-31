@@ -1,8 +1,3 @@
-/* eslint-disable no-var */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
-
-import { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { changeWidth, changeFont } from '../../reducer/layout';
 import { Icons } from './Icons';
@@ -19,59 +14,59 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
     },
   } = useSelector(changeWidth).payload;
 
-  const naverMap = useRef(null);
-  var map;
-  useEffect(() => {
-    // 126.9635035,37.5720123
-    const lat = 37.5675763;
-    const lng = 126.970047;
-    const mapWidth = 800.49;
-    const mapHeight = 442.96;
-    const initMap = () => {
-      // const bound = new naver.maps.LatLngBounds(new naver.maps.LatLng(37.56, 126.965), new naver.maps.LatLng(37.57, 126.975));
-      // width="800.49" height="442.96"
-      map = new naver.maps.CanvasTile({
-        size: new naver.maps.Size(mapWidth, mapHeight),
-        center: new naver.maps.LatLng(lat, lng),
-        logoControl: true,
-        zoomControl: false,
-        draggable: false,
-        scaleControl: false,
-        scrollWheel: false,
-        keyboardShortcuts: false,
-        zoom: 17,
-      });
-      map.appendTo(document.getElementById('map'));
-    };
-    initMap();
-    const marker = new naver.maps.Marker({
-      title: '프란치스코 교육회관',
-      position: new naver.maps.LatLng(lat, lng),
-      map: map,
-    });
-    // map.setCenter(new naver.maps.LatLng(37.567, 126.97));
-    // const infowindow = new naver.maps.InfoWindow({
-    //   content: [
-    //     '<div class="iw_inner" style="text-align: center;">',
-    //     '   <h3>천주교 프란치스코 교육회관</h3>',
-    //     '   <p>서울특별시 중구 정동 정동길 9번지<br />',
-    //     '       <a href="http://www.fec.or.kr/" target="_blank">www.fec.or.kr</a>',
-    //     '   </p>',
-    //     '</div>',
-    //   ].join(''),
-    //   backgroundColor: '#fffcf6',
-    //   borderWidth: '0px',
-    //   disableAnchor: true,
-    //   disableAutoPan: true,
-    //   pixelOffset: new naver.maps.Point(-119, -140),
-    // });
-    naver.maps.Event.addListener(marker, 'click', function (e) {
-      map.setCenter(new naver.maps.LatLng(37.5675, 126.971));
-    });
-  }, []);
+  // const naverMap = useRef(null);
+  // var map;
+  // useEffect(() => {
+  //   // 126.9635035,37.5720123
+  //   const lat = 37.5675763;
+  //   const lng = 126.970047;
+  //   const mapWidth = 800.49;
+  //   const mapHeight = 442.96;
+  //   const initMap = () => {
+  //     // const bound = new naver.maps.LatLngBounds(new naver.maps.LatLng(37.56, 126.965), new naver.maps.LatLng(37.57, 126.975));
+  //     // width="800.49" height="442.96"
+  //     map = new naver.maps.CanvasTile({
+  //       size: new naver.maps.Size(mapWidth, mapHeight),
+  //       center: new naver.maps.LatLng(lat, lng),
+  //       logoControl: true,
+  //       zoomControl: false,
+  //       draggable: false,
+  //       scaleControl: false,
+  //       scrollWheel: false,
+  //       keyboardShortcuts: false,
+  //       zoom: 17,
+  //     });
+  //     map.appendTo(document.getElementById('map'));
+  //   };
+  //   initMap();
+  //   const marker = new naver.maps.Marker({
+  //     title: '프란치스코 교육회관',
+  //     position: new naver.maps.LatLng(lat, lng),
+  //     map: map,
+  //   });
+  //   // map.setCenter(new naver.maps.LatLng(37.567, 126.97));
+  //   // const infowindow = new naver.maps.InfoWindow({
+  //   //   content: [
+  //   //     '<div class="iw_inner" style="text-align: center;">',
+  //   //     '   <h3>천주교 프란치스코 교육회관</h3>',
+  //   //     '   <p>서울특별시 중구 정동 정동길 9번지<br />',
+  //   //     '       <a href="http://www.fec.or.kr/" target="_blank">www.fec.or.kr</a>',
+  //   //     '   </p>',
+  //   //     '</div>',
+  //   //   ].join(''),
+  //   //   backgroundColor: '#fffcf6',
+  //   //   borderWidth: '0px',
+  //   //   disableAnchor: true,
+  //   //   disableAutoPan: true,
+  //   //   pixelOffset: new naver.maps.Point(-119, -140),
+  //   // });
+  //   naver.maps.Event.addListener(marker, 'click', function (e) {
+  //     map.setCenter(new naver.maps.LatLng(37.5675, 126.971));
+  //   });
+  // }, []);
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox={`0 0 ${width} 1605.22`} {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox={`0 0 ${width} 1770.1`} {...props}>
       <defs>
         <clipPath id="Location__clip-path">
           <circle className="Location__cls-1" cx={319.38} cy={1028.31} r={46.77} />
@@ -90,6 +85,16 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
         </clipPath>
         <style>
           {`
+            .Location__flowerText {
+              fill: #ad7e5e;
+              font-size: 22px;
+              font-family: ${sans};
+              font-weight: 700;
+              letter-spacing: -0.01em;
+            }
+            .Location__flowerText--normal {
+              font-weight: 400;
+            }
             .Location__cls-1 {
               fill: #fae100;
             }
@@ -111,6 +116,9 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             .Location__cls-18,
             .Location__cls-21 {
               font-size: 19.36px;
+            }
+            .Location__specialText {
+              font-size: 16.15px;
             }
             .Location__cls-18 {
               font-family: ${sans};
@@ -217,7 +225,13 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
       </defs>
       <g id="Location__\uB808\uC774\uC5B4_2" data-name="\uB808\uC774\uC5B4 2">
         <g id="Location__Layer_1" data-name="Layer 1">
-          <path fill="#fffcf6" d="M0 0h800v1605.22H0z" />
+          <path fill="#fffcf6" d="M0 0h800v1770.1H0z" />
+          <path
+            d="M741.81 1770.1V444.36c0-188.77-153-341.81-341.81-341.81h0c-188.78 0-341.81 153-341.81 341.81v1360.86"
+            stroke="#ad7e5e"
+            fill="none"
+            strokeMiterlimit={10}
+          />
           <text transform="translate(278.31 250.8)" fill="#ad7e5e" fontSize={35} fontFamily={serif} letterSpacing=".2em">
             LOCATION
           </text>
@@ -235,20 +249,25 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             서울시 중구 정동길 9번지
           </text>
           <Icons />
-          <text
-            transform="translate(96.42 1385.21)"
-            letterSpacing="-.03em"
-            fontFamily={sans}
-            fontWeight={500}
-            fontSize={19.36}
-            fill="#ad7e5e"
-          >
-            {'\uBC84'}
-            <tspan x={17.21} y={0} letterSpacing={0}>
-              {'\uC2A4'}
+
+          <text className="Location__cls-21" transform="translate(172.59 1229.82)">
+            <tspan>경향신문사 주차장 이용 (서울시 중구 정동길 3)</tspan>
+            <tspan className="Location__specialText" x={0} y={27.49}>
+              주차장이 협소할 수 있으니, 만차시 주변 주차장을 이용 부탁드립니다.
             </tspan>
           </text>
-          <text className="Location__cls-18" transform="translate(94.77 1289.56)">
+          <text className="Location__cls-18" transform="translate(94.77 1229.44)">
+            <tspan letterSpacing="-.06em">{'\uC790'}</tspan>
+            <tspan x={16.72} y={0} letterSpacing=".01em">
+              {'\uAC00'}
+            </tspan>
+            <tspan x={34.79} y={0}>
+              {'\uC6A9'}
+            </tspan>
+          </text>
+
+          <line className="Location__cls-133" x1="91.02" y1="1281.48" x2="708.98" y2="1281.48" />
+          <text className="Location__cls-18" transform="translate(94.77 1313.78)">
             <tspan letterSpacing="-.03em">{'\uC9C0'}</tspan>
             <tspan x={17.19} y={0} letterSpacing=".02em">
               {'\uD558'}
@@ -257,7 +276,7 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
               {'\uCCA0'}
             </tspan>
           </text>
-          <text className="Location__cls-21" transform="translate(172.59 1289.94)">
+          <text className="Location__cls-21" transform="translate(172.59 1314.16)">
             <tspan letterSpacing="-.03em">{'\uC11C'}</tspan>
             <tspan x={17.25} y={0} letterSpacing="-.02em">
               {'\uB300'}
@@ -407,7 +426,21 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
               {'\uBD84'}
             </tspan>
           </text>
-          <text transform="translate(174.63 1385.69)" fontSize={18.84} fill="#494949" fontFamily={sans} fontWeight={400}>
+          <line className="Location__cls-133" x1="91.02" y1="1379.13" x2="708.98" y2="1379.13" />
+          <text
+            transform="translate(96.42 1409.43)"
+            letterSpacing="-.03em"
+            fontFamily={sans}
+            fontWeight={500}
+            fontSize={19.36}
+            fill="#ad7e5e"
+          >
+            {'\uBC84'}
+            <tspan x={17.21} y={0} letterSpacing={0}>
+              {'\uC2A4'}
+            </tspan>
+          </text>
+          <text transform="translate(174.63 1409.91)" fontSize={18.84} fill="#494949" fontFamily={sans} fontWeight={400}>
             <tspan letterSpacing="-.05em">{'\uAC04'}</tspan>
             <tspan x={16.43} y={0} letterSpacing="-.04em">
               {'\uC120'}
@@ -834,72 +867,34 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
               {'2'}
             </tspan>
           </text>
-          <text className="Location__cls-21" transform="translate(172.59 1229.82)">
-            <tspan className="Location__cls-126">{'\uC11C'}</tspan>
-            <tspan x={17.13} y={0} letterSpacing="-.05em">
-              {'\uC6B8'}
+          <text className="Location__flowerText" transform="translate(133.31 1656.97) scale(0.99 1)">
+            ※ 축하 화환
+            <tspan className="Location__flowerText--normal" x="112.57" y="0">
+              은 성당에
             </tspan>
-            <tspan x={33.98} y={0}>
-              {'\uC2DC '}
+            <tspan x="203.3" y="0">
+              반입 불가
             </tspan>
-            <tspan x={57.21} y={0} letterSpacing={0}>
-              {'\uC911'}
-            </tspan>
-            <tspan x={75.04} y={0}>
-              {'\uAD6C '}
-            </tspan>
-            <tspan className="Location__cls-126" x={98.27} y={0}>
-              {'\uC815'}
-            </tspan>
-            <tspan x={115.4} y={0} letterSpacing="-.01em">
-              {'\uB3D9'}
-            </tspan>
-            <tspan x={133.03} y={0}>
-              {'\uAE38 '}
-            </tspan>
-            <tspan x={155.18} y={0} letterSpacing="-.02em">
-              {'9'}
-            </tspan>
-            <tspan className="Location__cls-126" x={165.5} y={0}>
-              {'\uBC88'}
-            </tspan>
-            <tspan x={182.62} y={0}>
-              {'\uC9C0'}
+            <tspan className="Location__flowerText--normal" x="289.32" y="0">
+              하므로 참고 부탁드립니다.
             </tspan>
           </text>
-          <text className="Location__cls-18" transform="translate(94.77 1229.44)">
-            <tspan letterSpacing="-.06em">{'\uC790'}</tspan>
-            <tspan x={16.72} y={0} letterSpacing=".01em">
-              {'\uAC00'}
-            </tspan>
-            <tspan x={34.79} y={0}>
-              {'\uC6A9'}
-            </tspan>
-          </text>
-          <path className="Location__cls-133" d="M91.02 1260.66h617.96M91.02 1355.21h617.96" />
-          <path
-            d="M741.81 1605.22V444.36c0-188.77-153-341.81-341.81-341.81h0c-188.78 0-341.81 153-341.81 341.81v1160.86"
-            stroke="#ad7e5e"
-            fill="none"
-            strokeMiterlimit={10}
-          />
           <image
             y="487.48"
             width="800.49"
             height="442.96"
             href="https://hyodee-homesick.s3.ap-northeast-2.amazonaws.com/wedding-photo/map.png"
           ></image>
-          {/* <foreignObject y="487.48" width="800.49" height="442.96"> */}
-          {/* <div xmlns="w3.org/1999/xhtml" id="map" width="800.49" height="442.96"></div> */}
-          {/* </foreignObject> */}
+
+          {/* 티맵, 카카오네비, 네이버지도, 카카오맵 */}
+          <text className="Location__cls-135" transform="matrix(.99 0 0 1 137.37 1119.5)">
+            {'\uD2F0\uB9F5'}
+          </text>
           <text className="Location__cls-135" transform="matrix(.99 0 0 1 269.73 1119.5)">
             {'\uCE74\uCE74\uC624\uB0B4\uBE44'}
           </text>
           <text className="Location__cls-135" transform="matrix(.99 0 0 1 431.81 1119.5)">
             {'\uB124\uC774\uBC84\uC9C0\uB3C4'}
-          </text>
-          <text className="Location__cls-135" transform="matrix(.99 0 0 1 137.37 1119.5)">
-            {'\uD2F0\uB9F5'}
           </text>
           <text className="Location__cls-135" transform="matrix(.99 0 0 1 603.8 1119.5)">
             {'\uCE74\uCE74\uC624\uB9F5'}
