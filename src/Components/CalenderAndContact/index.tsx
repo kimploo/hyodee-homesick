@@ -217,25 +217,16 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             className="CalendarAndContact__icons"
             d="M182.48,1719.3a2.65,2.65,0,0,1-1.15,2.86c-2.27,1.73-2.46,4.08-1.69,6.6a14.2,14.2,0,0,0,7.42,8.87,5.26,5.26,0,0,0,6.23-.59,2.41,2.41,0,0,1,2.77-.34,8.1,8.1,0,0,1,2,1.23,19.53,19.53,0,0,1,6.13,9.48c-3.39,4-7.27,4.75-11.42,3.46a26.9,26.9,0,0,1-9.79-5.9,50.41,50.41,0,0,1-12.88-17.35,20.49,20.49,0,0,1-2.06-11,9.38,9.38,0,0,1,4.48-6.7,2.32,2.32,0,0,1,2.46,0,8.73,8.73,0,0,1,1.87,1.22,21.08,21.08,0,0,1,5.15,6.77C182.17,1718.31,182.31,1718.81,182.48,1719.3Z"
           />
-
-          <rect
-            className="CalendarAndContact-cls-hiddenButton"
-            opacity={0}
-            x={x + between}
-            y={y + 420}
-            width={btnWidth}
-            height={btnHeight}
-          />
+          <rect className="CalendarAndContact-cls-hiddenButton" opacity={0} x={x} y={y + 600} width={btnWidth} height={btnHeight} />
         </a>
         <a id="groomMotherMessage" href={`sms://${groomMother.phone}&body=신랑 ${groom.personName}님의 ${celebrationMessage}`}>
           <rect className="CalendarAndContact__icons" x="268.43" y="1717.29" width="37.66" height="24.18" />
           <polyline className="CalendarAndContact__icons--line" points="268.43 1717.29 287.26 1729.38 306.09 1717.29" />
-
           <rect
             className="CalendarAndContact-cls-hiddenButton"
             opacity={0}
-            x={x + between + phoneMsg}
-            y={y + 420}
+            x={x + phoneMsg}
+            y={y + 600}
             width={btnWidth}
             height={btnHeight}
           />
@@ -246,18 +237,23 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
             className="CalendarAndContact__icons"
             d="M508.52,1543.51a2.66,2.66,0,0,1-1.14,2.87c-2.28,1.73-2.46,4.08-1.7,6.59a14.2,14.2,0,0,0,7.42,8.88,5.29,5.29,0,0,0,6.24-.59,2.41,2.41,0,0,1,2.76-.35,8.19,8.19,0,0,1,2,1.24,21.23,21.23,0,0,1,5.21,6.89c.94,2.11.61,3.25-1.22,4.65a9.68,9.68,0,0,1-9.29,1.39,26.76,26.76,0,0,1-9.79-5.9,50.31,50.31,0,0,1-12.88-17.35c-1.54-3.5-2.56-7.12-2.06-11a9.39,9.39,0,0,1,4.48-6.69,2.34,2.34,0,0,1,2.46,0,8.7,8.7,0,0,1,1.88,1.23,21.15,21.15,0,0,1,5.14,6.76C508.21,1542.53,508.35,1543,508.52,1543.51Z"
           />
-
-          <rect className="CalendarAndContact-cls-hiddenButton" opacity={0} x={x} y={y + 600} width={btnWidth} height={btnHeight} />
+          <rect
+            className="CalendarAndContact-cls-hiddenButton"
+            opacity={0}
+            x={x + between}
+            y={y + 420}
+            width={btnWidth}
+            height={btnHeight}
+          />
         </a>
         <a id="brideFatherMessage" href={`sms://${brideFather.phone}&body=신부 ${bride.personName}님의 ${celebrationMessage}`}>
           <rect className="CalendarAndContact__icons" x="594.47" y="1541.51" width="37.66" height="24.18" />
           <polyline className="CalendarAndContact__icons--line" points="594.47 1541.51 613.3 1553.6 632.13 1541.51" />
-
           <rect
             className="CalendarAndContact-cls-hiddenButton"
             opacity={0}
-            x={x + phoneMsg}
-            y={y + 600}
+            x={x + between + phoneMsg}
+            y={y + 420}
             width={btnWidth}
             height={btnHeight}
           />
