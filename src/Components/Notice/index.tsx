@@ -169,12 +169,14 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
           strokeMiterlimit={10}
           stroke="#326e4c"
         >
-          늦은 가을에 처음 만난 두 사람,
-          <tspan x={-81.8} y={60.32}>
-            두 해를 거쳐 부부로서 또 다른 시작을 합니다.
+          <tspan x={40} y={0}>
+            2년 전 처음 만난 저희는
           </tspan>
-          <tspan x={-12.71} y={120.65}>
-            서로 닮은 듯 다른 저희 두 사람이
+          <tspan x={30} y={60.32}>
+            그동안의 믿음과 사랑으로
+          </tspan>
+          <tspan x={-30} y={120.65}>
+            부부로서 또 다른 시작을 하려 합니다.
           </tspan>
           <tspan x={11.09} y={180.97}>
             서로의 부족한 점을 채워주며

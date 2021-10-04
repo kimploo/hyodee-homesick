@@ -138,7 +138,7 @@ export const weddingInfoSlice = createSlice({
         index: 6,
       },
       {
-        message: '서로가 너무 재밌는 두 사람',
+        message: '벚꽃 아래 우리',
         index: 7,
       },
     ],

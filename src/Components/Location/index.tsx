@@ -867,6 +867,12 @@ export default function SvgComponent(props: React.SVGProps<SVGSVGElement>) {
               {'2'}
             </tspan>
           </text>
+          <text className="Location__flowerText" transform="translate(210 1600) scale(0.99 1)">
+            ※ 코로나19
+            <tspan className="Location__flowerText--normal" x="112.57" y="0">
+              로 식사는 제공되지 않습니다.
+            </tspan>
+          </text>
           <text className="Location__flowerText" transform="translate(133.31 1656.97) scale(0.99 1)">
             ※ 축하 화환
             <tspan className="Location__flowerText--normal" x="112.57" y="0">
